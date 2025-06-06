@@ -14,11 +14,16 @@ form.addEventListener('submit', function (e) {
 function addTask(text) {
   const li = document.createElement('li');
   li.textContent = text;
-
+  const done = document.createElement('button');
+  done.textContent = '✔️';
+  done.onclick = () => li.remove();
   const deleteBtn = document.createElement('button');
   deleteBtn.textContent = '❌';
   deleteBtn.onclick = () => li.remove();
 
   li.appendChild(deleteBtn);
+  taskList.appendChild(li);
+
+  li.appendChild(done);
   taskList.appendChild(li);
 }
